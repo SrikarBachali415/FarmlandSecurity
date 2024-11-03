@@ -21,14 +21,20 @@ import com.hivemq.client.mqtt.mqtt3.Mqtt3Client;
 import com.hivemq.client.mqtt.mqtt5.message.connect.connack.Mqtt5ConnAck;
 import com.hivemq.client.mqtt.mqtt5.Mqtt5Client;
 import com.hivemq.client.mqtt.mqtt5.Mqtt5AsyncClient;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutorService;
 
 public class MainActivity extends AppCompatActivity {
     private Mqtt3AsyncClient mqttClient;
     private TextView mqttStatus;
     private TextView messagesTextView;
+    private ExecutorService executorService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,15 +42,16 @@ public class MainActivity extends AppCompatActivity {
         messagesTextView = findViewById(R.id.messagesTextView);
         mqttStatus = findViewById(R.id.mqttStatus);
         Button connectButton = findViewById(R.id.connectButton);
-
-        // Initialize the MQTT client with HiveMQ public broker details
         mqttClient = MqttClient.builder()
                 .useMqttVersion3()  // Ensure you're using MQTT 3.1.1
                 .identifier("srikarsrikar")
                 .serverHost("broker.hivemq.com")
-                .serverPort(1883)
-                .buildAsync();
-
+                .serverPort(8883) // SSL port
+                .sslWithDefaultConfig() // Use SSL
+                .simpleAuth()
+                .username("srikarbachali@gmail.com")
+                .password("srikar2004".getBytes())
+                .applySimpleAuth().buildAsync();
 
         connectButton.setOnClickListener(v -> connectToMQTTBroker());
     }
