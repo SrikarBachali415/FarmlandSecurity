@@ -3,29 +3,27 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/mqttStatus"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MQTT Status: Not Connected"
-        android:textSize="18sp"
-        android:padding="16dp" />
+        android:text="MQTT Status"
+        android:padding="16dp"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/connectButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Connect to MQTT Broker" />
-
-    <TextView
-        android:id="@+id/messagesTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Messages will appear here"
-        android:padding="16dp"
-        android:textSize="16sp"/>
+        android:text="Connect to Broker" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messagesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp" />
 </LinearLayout>
+
+
