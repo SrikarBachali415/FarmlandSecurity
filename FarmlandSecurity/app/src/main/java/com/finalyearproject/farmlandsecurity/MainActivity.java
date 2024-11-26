@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set up MQTT client
         mqttClient = MqttClient.builder()
-                .useMqttVersion3() 
+                .useMqttVersion3()
                 .identifier("srikarsrikar")
                 .serverHost("broker.hivemq.com")
                 .serverPort(8883) // SSL port
