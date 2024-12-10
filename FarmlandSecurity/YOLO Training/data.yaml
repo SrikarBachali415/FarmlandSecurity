@@ -1,0 +1,29 @@
+names:
+- Leopard
+- LeopardCat
+- RedFox
+- WildBoar
+- AmurTiger
+- Badger
+- BlackBear
+- Bluebull
+- person
+- bird
+- cat
+- dog
+- horse
+- sheep
+- cow
+- elephant
+- bear
+- zebra
+- giraffe
+- car
+- truck
+- motorcycle
+- cycle
+- bus
+nc: 24
+test: E:\YOLO Combined Dataset\test
+train: E:\YOLO Combined Dataset\train
+val: E:\YOLO Combined Dataset\val
